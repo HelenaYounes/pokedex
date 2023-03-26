@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
 import Home from './components/home/home.component';
+import PokemonDetail from './components/pokemon/pokemon.component';
+
 import './App.css';
+
 
 
 function App() {
@@ -9,6 +13,7 @@ function App() {
   const [filteredList, setFilteredList] = useState(pokemonsList);
   const [pokemonSelected, setPokemonSelected] = useState(null);
 
+  // let {id} = useParams();
 
   useEffect(() => {
     fetchPokemons();
@@ -34,10 +39,11 @@ function App() {
   }
 
   return (
-    <div>
-      {console.log(filteredList)}
-      <Home className='pokemons' pokemons={filteredList} onChangeHandler={onNewSearch}/>
-    </div>
+
+    <Routes>
+      <Route path='/' element= {<Home className='pokemons' pokemons={filteredList} onChangeHandler={onNewSearch} />} />
+      <Route path='/pokemon/:id' element={<PokemonDetail />} />
+    </Routes>
 
   );
 }
