@@ -1,5 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {CCard, CCardImage, CCardBody, CCardText, CCardTitle, CButton} from '@coreui/react';
 import './pokemon.css';
 
 const PokemonDetail = () => {
@@ -26,15 +27,26 @@ const PokemonDetail = () => {
     <div className='card-container'>
       {isLoading
            ? <p>Loading</p>
-           : <header>
-             <h2>{details.name}</h2>
-             {console.log(details)}
-             <img src={details.sprites.front_default} />
-           </header>
-         }
+           : <CCard style={{ width: '18rem' }}>
+              <CCardImage orientation="top" src={details.sprites.front_default} />
+              <CCardBody>
+                <CCardTitle>{details.name}</CCardTitle>
+                <CCardText>
+                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                </CCardText>
+                <CButton href="#">Go somewhere</CButton>
+              </CCardBody>
+            </CCard>
+        }
 
     </div>
   );
 }
 
 export default PokemonDetail;
+
+{/* <header>
+  <h2>{details.name}</h2>
+  {console.log(details)}
+  <img src={details.sprites.front_default} />
+</header> */}

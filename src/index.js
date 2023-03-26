@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter} from 'react-router-dom';
 import './index.css';
+import '@coreui/coreui/dist/css/coreui.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
