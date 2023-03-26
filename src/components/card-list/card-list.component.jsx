@@ -5,7 +5,7 @@ const CardList= ({list}) => (
   <div className='card-list'>
     {
       list.map((pokemon, index) => {
-        return <Card key={index} pokemon={pokemon} id={index}/>
+        return <Card key={index} pokemon={pokemon} id={index +1}/>
       })}
 
   </div>
