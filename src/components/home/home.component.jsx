@@ -1,4 +1,4 @@
-
+import { useSearchParams } from "react-router-dom";
 import SearchBox from '../search-box/search-box.component';
 import CardList from '../card-list/card-list.component';
 import { useState, useEffect } from 'react';
@@ -8,9 +8,12 @@ let searchTimeout
 
 const Home = ({ pokemons }) => {
 
-  const [searchField, setSearchField] = useState('');
+   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchField, setSearchField] = useState(searchParams.get('name') || '');
   const [filteredList, setFilteredList] = useState(pokemons);
   const [pokemonSelected, setPokemonSelected] = useState(null);
+  debugger;
+
 
 
   useEffect(() => {
@@ -27,7 +30,10 @@ const Home = ({ pokemons }) => {
     // if there was a timeout in process, cancel it
     clearTimeout(searchTimeout)
 
-    const callback = () => setSearchField(searchString)
+    const callback = () =>{
+      setSearchField(searchString);
+      setSearchParams({name: searchString})
+    }
 
     // start timeout process
     searchTimeout = setTimeout(callback, 500)
