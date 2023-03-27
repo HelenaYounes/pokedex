@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
-import {CCard, CCardImage, CCardBody, CCardText, CCardTitle, CButton} from '@coreui/react';
+import { CCard, CCardImage, CCardBody,CCardTitle, CCardText, CButton } from '@coreui/react';
 
-const Card = ({pokemon, id}) => (
+import './card.css';
+
+const Card = ({title, img, id, children}) => (
   <CCard style={{ width: '18rem' }}>
-     <CCardImage orientation="top" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${id}.png`} />
-     <CCardBody>
-       <CCardTitle>{pokemon.name}</CCardTitle>
-       <CCardText>
-         Some quick example text to build on the card title and make up the bulk of the card's content.
-       </CCardText>
-       <Link to={`pokemon/${id}`}><CButton>Go somewhere</CButton></Link>
-     </CCardBody>
-   </CCard>
-
+    <CCardImage orientation="top" src={img} />
+    <CCardBody>
+      <CCardTitle>{title}</CCardTitle>
+      <CCardText>
+        {children}
+      </CCardText>
+      {/* <CButton href="#">Go somewhere</CButton> */}
+    </CCardBody>
+  </CCard>
 );
 
 export default Card;

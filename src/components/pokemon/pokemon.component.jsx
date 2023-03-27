@@ -1,12 +1,13 @@
-
 import { useParams} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import {CCard, CCardImage, CCardBody, CCardText, CCardTitle, CButton} from '@coreui/react';
+import Card from '../card/card.component';
+
 
 
 const Pokemon = () => {
   const {id} = useParams();
-  const url =  `https://pokeapi.co/api/v2/pokemon/${id}`
+  const url =  `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const img =`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`
   const [pokemon, setPokemon] = useState({
     name:'',
     sprites: {}
@@ -24,20 +25,10 @@ const Pokemon = () => {
   }
 
   return (
-    <div className='card-container'>
-      <CCard style={{ width: '18rem' }}>
-        <CCardImage orientation="top" src={pokemon.sprites.front_default} />
-        <CCardBody>
-          <CCardTitle>{pokemon.name}</CCardTitle>
-          <CCardText>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </CCardText>
-          <CButton href="#">Go somewhere</CButton>
-        </CCardBody>
-      </CCard>
-    </div>
-  )
-
+    <Card title={pokemon.name} img={img} id={id}>
+      <p>hfsoefjoes</p>
+    </Card>
+  );
 }
 
 export default Pokemon;
