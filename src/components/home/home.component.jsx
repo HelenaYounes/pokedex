@@ -47,6 +47,7 @@ const Home = ({ pokemons }) => {
         className='search-box'
         placeholder='search pokemons'
         onChangeHandler={onNewSearch}
+        defaultValue={searchParams.get('name')}
       />
       <CardList list={filteredList}/>
     </div>

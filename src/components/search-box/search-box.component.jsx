@@ -1,11 +1,12 @@
 import './search-box.css';
 
-const SearchBox = ({onChangeHandler}) => (
+const SearchBox = ({onChangeHandler, defaultValue}) => (
   <input
-  className='search-box'
-  type='search'
-  placeholder='search pokemon'
-  onChange={onChangeHandler}
+    defaultValue={defaultValue}
+    className='search-box'
+    type='search'
+    placeholder='search pokemon'
+    onChange={onChangeHandler}
   />
 )
 
