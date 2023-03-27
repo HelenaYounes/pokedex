@@ -8,13 +8,10 @@ let searchTimeout
 
 const Home = ({ pokemons }) => {
 
-   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchField, setSearchField] = useState(searchParams.get('name') || '');
   const [filteredList, setFilteredList] = useState(pokemons);
   const [pokemonSelected, setPokemonSelected] = useState(null);
-  debugger;
-
-
 
   useEffect(() => {
     const newList = pokemons.filter(pokemon => {
@@ -34,10 +31,9 @@ const Home = ({ pokemons }) => {
       setSearchField(searchString);
       setSearchParams({name: searchString})
     }
-
+    
     // start timeout process
     searchTimeout = setTimeout(callback, 500)
-
   }
 
   return (

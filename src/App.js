@@ -5,18 +5,13 @@ import { Routes, Route, useParams} from 'react-router-dom';
 import './App.css';
 import { useState, useEffect } from 'react';
 
-
-
-
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
 
   // let {id} = useParams();
-
   useEffect(() => {
     fetchPokemons();
  },[]);
-
 
   const fetchPokemons = async () => {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1300');
@@ -36,11 +31,8 @@ function App() {
           path="/pokemon/:id"
           element={<Pokemon />}
         />
-
       </Routes>
-
     </div>
-
   );
 }
 
