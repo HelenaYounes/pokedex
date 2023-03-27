@@ -1,7 +1,7 @@
 
 import Home from './components/home/home.component';
 import Pokemon from './components/pokemon/pokemon.component';
-import { Routes, Route, useParams} from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
 import { useState, useEffect } from 'react';
 
@@ -23,12 +23,15 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path='/'
+          element={<Navigate to='/pokemons'/>}
+        />
         <Route
-          path="/"
+          path='/pokemons'
           element={<Home className='pokemons' pokemons={pokemonsList} />}
         />
         <Route
-          path="/pokemon/:id"
+          path='/pokemon/:id'
           element={<Pokemon />}
         />
       </Routes>
