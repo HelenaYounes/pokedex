@@ -7,9 +7,11 @@ import { useState, useEffect } from 'react';
 
 
 
+
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
 
+  // let {id} = useParams();
 
   useEffect(() => {
     fetchPokemons();
