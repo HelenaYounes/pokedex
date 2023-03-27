@@ -1,8 +1,7 @@
 import { useParams} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {useState, useEffect} from 'react';
 import Card from '../card/card.component';
-
-
 
 const Pokemon = () => {
   const {id} = useParams();
@@ -26,7 +25,7 @@ const Pokemon = () => {
 
   return (
     <Card title={pokemon.name} img={img} id={id}>
-      <p>hfsoefjoes</p>
+      <Link to="/">Go back</Link>
     </Card>
   );
 }
