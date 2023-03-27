@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
 
+
   useEffect(() => {
     fetchPokemons();
  },[]);
