@@ -1,9 +1,8 @@
 import { useParams} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react';
-import Card from '../card/card.component';
-import { CButton } from '@coreui/react'
-
+import Card from './Card';
+import { CButton } from '@coreui/react';
 
 const Pokemon = () => {
   const navigate = useNavigate();
@@ -46,13 +45,12 @@ const Pokemon = () => {
         imageSrcIndex = imageUrls.length -1;
       } else if (imageSrcIndex === imageUrls.length){
         imageSrcIndex = 0;
-      }
-      console.log(imageUrls)
+      };
     document.getElementById('pokemonImage').src= imageUrls[imageSrcIndex];
   };
 
   return (
-    <Card key={id} title={pokemon.name} img={img} id={id}>
+    <Card className="card-container" key={id} title={pokemon.name} img={img} id={id}>
       <CButton onClick={() => {changeImageOnClick(-1)}} color="dark" variant="outline">Previous</CButton>
       <CButton onClick={() => {changeImageOnClick(+1)} }color="dark" variant="outline">Next</CButton>
       <CButton onClick={() => navigate(-1)}>Previous page</CButton>

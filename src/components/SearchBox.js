@@ -1,4 +1,4 @@
-import './search-box.css';
+// import './search-box.css';
 
 const SearchBox = ({onChangeHandler, defaultValue}) => (
   <input

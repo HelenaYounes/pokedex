@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import SearchBox from '../search-box/search-box.component';
-import CardList from '../card-list/card-list.component';
+import SearchBox from './SearchBox';
+import CardList from './CardList';
 import { useState, useEffect } from 'react';
 
 let searchTimeout;

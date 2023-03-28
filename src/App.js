@@ -1,5 +1,5 @@
-import Home from './components/home/home.component';
-import Pokemon from './components/pokemon/pokemon.component';
+import Home from './components/Home';
+import Pokemon from './components/Pokemon';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
 import { useState, useEffect } from 'react';

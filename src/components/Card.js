@@ -1,10 +1,8 @@
 import { CCard, CCardImage, CCardBody,CCardTitle, CCardText } from '@coreui/react';
 
-import './card.css';
-
 const Card = ({title, img, id, children}) => {
 return(
-  <CCard style={{ width: '18rem' }}>
+  <CCard className="class-container" style={{ width: '18rem'}}>
     <CCardImage orientation="top" id="pokemonImage" src={img} />
     <CCardBody>
       <CCardTitle>{title}</CCardTitle>
