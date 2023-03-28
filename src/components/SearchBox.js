@@ -1,4 +1,3 @@
-// import './search-box.css';
 
 const SearchBox = ({onChangeHandler, defaultValue}) => (
   <input
