@@ -1,8 +1,9 @@
 import { useParams} from 'react-router-dom';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from 'react';
 import Card from '../card/card.component';
-import { CCardImage, CCarousel, CCarouselItem } from '@coreui/react';
+import { CButton } from '@coreui/react'
+
 
 const Pokemon = () => {
   const navigate = useNavigate();
@@ -14,9 +15,11 @@ const Pokemon = () => {
     sprites: {}
   });
 
+  let imageSrcIndex = 0;
+
     useEffect(()=>{
-    fetchPokemon();
-  },[]);
+      fetchPokemon();
+    },[]);
 
   const fetchPokemon = async () => {
     const res = await fetch(url);
@@ -26,7 +29,7 @@ const Pokemon = () => {
     const imageKeys = Object.keys(json.sprites).slice(0,-2)
     const imageUrls = imageKeys
       .map( key => json.sprites[key])
-      .filter( value => !!value)
+      .filter( value => !!value);
   };
 
   const imageKeys = pokemon.sprites
@@ -37,18 +40,22 @@ const Pokemon = () => {
     .map( key => pokemon.sprites[key])
     .filter( value => !!value);
 
+  const changeImageOnClick = (delta) => {
+    imageSrcIndex += delta;
+      if (imageSrcIndex === -1){
+        imageSrcIndex = imageUrls.length -1;
+      } else if (imageSrcIndex === imageUrls.length){
+        imageSrcIndex = 0;
+      }
+      console.log(imageUrls)
+    document.getElementById('pokemonImage').src= imageUrls[imageSrcIndex];
+  };
+
   return (
-    <Card title={pokemon.name} img={img} id={id}>
-      <CCarousel controls dark>
-        {imageUrls.map((url)=>{
-          return(
-            <CCarouselItem>
-              <CCardImage className="d-block w-100" src={url} alt="slide 1" />
-            </CCarouselItem>
-          )})
-        }
-      </CCarousel>
-      <button onClick={() => navigate(-1)}>GO BACK</button>
+    <Card key={id} title={pokemon.name} img={img} id={id}>
+      <CButton onClick={() => {changeImageOnClick(-1)}} color="dark" variant="outline">Previous</CButton>
+      <CButton onClick={() => {changeImageOnClick(+1)} }color="dark" variant="outline">Next</CButton>
+      <CButton onClick={() => navigate(-1)}>Previous page</CButton>
     </Card>
   );
 }

@@ -3,15 +3,13 @@ import SearchBox from '../search-box/search-box.component';
 import CardList from '../card-list/card-list.component';
 import { useState, useEffect } from 'react';
 
-
-let searchTimeout
+let searchTimeout;
 
 const Home = ({ pokemons }) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchField, setSearchField] = useState(searchParams.get('name') || '');
   const [filteredList, setFilteredList] = useState(pokemons);
-  const [pokemonSelected, setPokemonSelected] = useState(null);
 
   useEffect(() => {
     const newList = pokemons.filter(pokemon => {
@@ -25,15 +23,15 @@ const Home = ({ pokemons }) => {
     const searchString = e.target.value.toLocaleLowerCase();
 
     // if there was a timeout in process, cancel it
-    clearTimeout(searchTimeout)
+    clearTimeout(searchTimeout);
 
     const callback = () =>{
       setSearchField(searchString);
-      setSearchParams({name: searchString})
-    }
-    
+      setSearchParams({name: searchString});
+    };
+
     // start timeout process
-    searchTimeout = setTimeout(callback, 500)
+    searchTimeout = setTimeout(callback, 500);
   }
 
   return (

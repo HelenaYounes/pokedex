@@ -1,4 +1,3 @@
-
 import Home from './components/home/home.component';
 import Pokemon from './components/pokemon/pokemon.component';
 import { Routes, Route, Navigate} from 'react-router-dom';
@@ -8,7 +7,6 @@ import { useState, useEffect } from 'react';
 function App() {
   const [pokemonsList, setPokemonsList] = useState([]);
 
-  // let {id} = useParams();
   useEffect(() => {
     fetchPokemons();
  },[]);
@@ -18,7 +16,7 @@ function App() {
     const json = await res.json();
     const pokemons = json.results;
     setPokemonsList(pokemons);
-  }
+  };
 
   return (
     <div>

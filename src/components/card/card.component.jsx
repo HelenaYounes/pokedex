@@ -1,18 +1,20 @@
-import { CCard, CCardImage, CCardBody,CCardTitle, CCardText, CButton } from '@coreui/react';
+import { CCard, CCardImage, CCardBody,CCardTitle, CCardText } from '@coreui/react';
 
 import './card.css';
 
-const Card = ({title, img, id, children}) => (
+const Card = ({title, img, id, children}) => {
+return(
   <CCard style={{ width: '18rem' }}>
-    <CCardImage orientation="top" src={img} />
+    <CCardImage orientation="top" id="pokemonImage" src={img} />
     <CCardBody>
       <CCardTitle>{title}</CCardTitle>
       <CCardText>
         {children}
       </CCardText>
-      {/* <CButton href="#">Go somewhere</CButton> */}
     </CCardBody>
   </CCard>
 );
+};
+
 
 export default Card;
