@@ -50,7 +50,7 @@ const Pokemon = () => {
   };
 
   return (
-    <Card className="card-container" key={id} title={pokemon.name} img={img} id={id}>
+    <Card key={id} title={pokemon.name} img={img} id={id}>
       <CButton onClick={() => {changeImageOnClick(-1)}} color="dark" variant="outline">Previous</CButton>
       <CButton onClick={() => {changeImageOnClick(+1)} }color="dark" variant="outline">Next</CButton>
       <CButton onClick={() => navigate(-1)}>Previous page</CButton>

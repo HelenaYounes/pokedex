@@ -17,21 +17,21 @@ body {
 .app-title {
   margin-top: 75px;
   margin-bottom: 50px;
-  font-size: 76 px;
-  color:  #0ccac4;
+  font-size: 76px;
+  color: #0ccac4;
 }
 
 .card-list {
   width: 85vw;
-  margin: 0 auto;
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 
 .card-container {
   margin: auto;
-  margin-top: 8rem;
+  margin-top: 10%;
   text-align: center;
 }
 
@@ -42,5 +42,10 @@ body {
   padding: 10px;
   width: 150px;
   line-height: 30px;
-  margin-bottom: 30px;
+}
+
+.card-title {
+  margin-top: 2rem;
+  font-size: 2rem;
+  color:  #0ccac4;
 }
