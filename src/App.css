@@ -31,8 +31,9 @@ body {
 
 .card-container {
   margin: auto;
-  margin-top: 8%;
+  margin-top: 10%;
   text-align: center;
+  width: 18rem;
 }
 
 .search-box {
